@@ -5,11 +5,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 
-import javax.xml.ws.spi.http.HttpExchange;
-
 import otherServerThings.ServerSerializer;
-import otherServerThings.StringProcessor;
-import theseclasses.Command;
+import otherServerThings.Command;
+import theseclasses.CommandData;
 import theseclasses.Results;
 
 /**
@@ -52,8 +50,11 @@ public class ExecCommandHandler extends HandlerBase {
 
     public Command getCommand(com.sun.net.httpserver.HttpExchange exchange) throws IOException{
         InputStream reqBody = exchange.getRequestBody();
-        String command = readString(reqBody);
-        return serverSerializer.decodeCommand(command);
+        String commandDataJson = readString(reqBody);
+        CommandData commandData = serverSerializer.decodeCommandData(commandDataJson);
+        return new Command("StringProcessor", commandData.getMethodType(),
+                new Class<?>[] {String.class},
+                new String[] {commandData.getData()} );
     }
 
 

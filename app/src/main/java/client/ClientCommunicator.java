@@ -1,7 +1,5 @@
 package client;
 
-import android.util.Log;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -10,7 +8,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import theseclasses.Command;
 import theseclasses.RequestData;
 import theseclasses.Results;
 
@@ -40,7 +37,7 @@ public class ClientCommunicator {
 
             http.setDoOutput(true);
             http.connect();
-            String reqData = encodeData(object);
+            String reqData = serializer.encode(object);
             //String reqData = encodeData(object);
             OutputStream reqBody = http.getOutputStream();
             writeString(reqData, reqBody);
@@ -61,22 +58,17 @@ public class ClientCommunicator {
         return r;
     }
 
-    public Results sendCommand(String urlPath, Command command){
 
-
-        return new Results();
-    }
-
-    public String encodeData(Object o){
-        if(o.getClass() == RequestData.class){
-            RequestData requestData = (RequestData)o;
-            return serializer.encodeRequestData(requestData);
-        }
-        else{
-            Command command = (Command)o;
-            return serializer.encodeCommand(command);
-        }
-    }
+//    public String encodeData(Object o){
+//        if(o.getClass() == RequestData.class){
+//            RequestData requestData = (RequestData)o;
+//            return serializer.encodeRequestData(requestData);
+//        }
+//        else{
+//            Command command = (Command)o;
+//            return serializer.encodeCommand(command);
+//        }
+//    }
 
     private static String readString(InputStream is) throws IOException {
         StringBuilder sb = new StringBuilder();

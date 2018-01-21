@@ -1,6 +1,10 @@
-package theseclasses;
+package otherServerThings;
 
 import java.lang.reflect.Method;
+
+import theseclasses.ICommand;
+import theseclasses.Results;
+import otherServerThings.StringProcessor;
 
 /**
  * Created by clairescout on 1/13/18.

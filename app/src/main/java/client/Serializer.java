@@ -1,14 +1,7 @@
 package client;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 
-import java.lang.reflect.Type;
-
-import theseclasses.Command;
 import theseclasses.RequestData;
 import theseclasses.Results;
 
@@ -33,7 +26,6 @@ public class Serializer {
     public String encodeRequestData(RequestData req){
         return gson.toJson(req);
     }
-    public String encodeCommand(Command command){return gson.toJson(command);}
 
     public String encode(Object o){
         return gson.toJson(o);

@@ -1,6 +1,6 @@
 package otherServerThings;
 
-import theseclasses.Command;
+import theseclasses.CommandData;
 import theseclasses.RequestData;
 import theseclasses.Results;
 import com.google.gson.Gson;
@@ -27,5 +27,9 @@ public class ServerSerializer {
 
     public Command decodeCommand(String command){
         return gson.fromJson(command, Command.class);
+    }
+
+    public CommandData decodeCommandData(String commandData){
+        return gson.fromJson(commandData, CommandData.class);
     }
 }

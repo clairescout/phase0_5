@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import theseclasses.Command;
+
 import theseclasses.Results;
 
 import static org.junit.Assert.assertEquals;
@@ -29,11 +29,6 @@ public class StringProcessorProxy_CommandsTest {
 
     @Test
     public void testToLowerCaseCommand(){
-        Serializer serializer = new Serializer();
-        String json = serializer.encodeCommand(new Command("StringProcessor", "toLowerCase",
-                new Class<?>[]{String.class} ,
-                new String[] {"indeed"}));
-        System.out.println(json);
         Results r = new Results(true, "claire", null);
         Results r2 = sppCommands.toLowerCase("CLAIRE");
         assertEquals(r.getMessage(), r2.getMessage());

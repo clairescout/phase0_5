@@ -11,7 +11,7 @@ import theseclasses.Results;
 public class StringProcessorProxy_NoCommands implements IStringProcessor {
 
     private ClientCommunicator clientCommunicator = new ClientCommunicator();
-    private String host = "10.37.17.222";
+    private String host = "192.168.1.205";
     private RequestData requestData = new RequestData();
 
     public Results toLowerCase(String s){
