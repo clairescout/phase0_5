@@ -1,8 +1,8 @@
 package otherServerThings;
 
 
-import theseclasses.IStringProcessor;
-import theseclasses.Results;
+import models.IStringProcessor;
+import models.Results;
 
 /**
  * Created by clairescout on 1/13/18.

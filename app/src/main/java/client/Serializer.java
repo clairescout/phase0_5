@@ -2,8 +2,7 @@ package client;
 
 import com.google.gson.Gson;
 
-import theseclasses.RequestData;
-import theseclasses.Results;
+import models.Results;
 
 /**
  * Created by clairescout on 1/13/18.
@@ -17,14 +16,6 @@ public class Serializer {
 
     public Results decodeResults(String data){
         return gson.fromJson(data, Results.class);
-    }
-
-    public String encodeResults(Results r){
-        return gson.toJson(r);
-    }
-
-    public String encodeRequestData(RequestData req){
-        return gson.toJson(req);
     }
 
     public String encode(Object o){

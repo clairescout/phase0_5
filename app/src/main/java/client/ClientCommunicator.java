@@ -8,8 +8,8 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import theseclasses.RequestData;
-import theseclasses.Results;
+
+import models.Results;
 
 /**
  * Created by clairescout on 1/13/18.
@@ -18,14 +18,6 @@ import theseclasses.Results;
 public class ClientCommunicator {
 
     private Serializer serializer = new Serializer();
-
-    /*http.setDoOutput(true);
-
-            http.connect();
-            String reqData = enDecode.encodeRegisterRequest(regReq);
-            OutputStream reqBody = http.getOutputStream();
-            writeString(reqData, reqBody);
-            reqBody.close();*/
 
     public Results send(String urlPath, Object object){
         Results r = new Results();
@@ -38,7 +30,6 @@ public class ClientCommunicator {
             http.setDoOutput(true);
             http.connect();
             String reqData = serializer.encode(object);
-            //String reqData = encodeData(object);
             OutputStream reqBody = http.getOutputStream();
             writeString(reqData, reqBody);
             reqBody.close();
@@ -58,17 +49,6 @@ public class ClientCommunicator {
         return r;
     }
 
-
-//    public String encodeData(Object o){
-//        if(o.getClass() == RequestData.class){
-//            RequestData requestData = (RequestData)o;
-//            return serializer.encodeRequestData(requestData);
-//        }
-//        else{
-//            Command command = (Command)o;
-//            return serializer.encodeCommand(command);
-//        }
-//    }
 
     private static String readString(InputStream is) throws IOException {
         StringBuilder sb = new StringBuilder();

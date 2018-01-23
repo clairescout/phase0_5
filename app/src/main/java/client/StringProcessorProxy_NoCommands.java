@@ -1,8 +1,8 @@
 package client;
 
-import theseclasses.IStringProcessor;
-import theseclasses.RequestData;
-import theseclasses.Results;
+import models.IStringProcessor;
+import models.RequestData;
+import models.Results;
 
 /**
  * Created by clairescout on 1/13/18.
@@ -11,7 +11,7 @@ import theseclasses.Results;
 public class StringProcessorProxy_NoCommands implements IStringProcessor {
 
     private ClientCommunicator clientCommunicator = new ClientCommunicator();
-    private String host = "192.168.1.205";
+    private String host = "10.24.69.119";
     private RequestData requestData = new RequestData();
 
     public Results toLowerCase(String s){

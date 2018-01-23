@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
 import otherServerThings.ServerSerializer;
-import theseclasses.RequestData;
+import models.RequestData;
 
 /**
  * Created by clairescout on 1/15/18.
@@ -40,15 +40,6 @@ public class HandlerBase implements HttpHandler {
         OutputStreamWriter sw = new OutputStreamWriter(os);
         sw.write(str);
         sw.flush();
-    }
-
-    public String getStringFromUrl(HttpExchange exchange){
-        java.net.URI uri = exchange.getRequestURI();
-        String filePathString = uri.getPath();
-        String[] paths = filePathString.split("/");
-        System.out.println("Paths 1: " + paths[1]);
-        System.out.println("Paths 2: " + paths[2]);
-        return paths[2];
     }
 
     public RequestData getRequestData(HttpExchange exchange) throws IOException{

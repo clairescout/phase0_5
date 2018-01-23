@@ -7,8 +7,8 @@ import java.net.HttpURLConnection;
 
 import otherServerThings.ServerSerializer;
 import otherServerThings.Command;
-import theseclasses.CommandData;
-import theseclasses.Results;
+import models.CommandData;
+import models.Results;
 
 /**
  * Created by clairescout on 1/13/18.
@@ -52,7 +52,7 @@ public class ExecCommandHandler extends HandlerBase {
         InputStream reqBody = exchange.getRequestBody();
         String commandDataJson = readString(reqBody);
         CommandData commandData = serverSerializer.decodeCommandData(commandDataJson);
-        return new Command("StringProcessor", commandData.getMethodType(),
+        return new Command("otherServerThings.StringProcessor", commandData.getMethodType(),
                 new Class<?>[] {String.class},
                 new String[] {commandData.getData()} );
     }

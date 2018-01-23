@@ -6,8 +6,8 @@ import java.net.HttpURLConnection;
 
 import otherServerThings.ServerSerializer;
 import otherServerThings.StringProcessor;
-import theseclasses.RequestData;
-import theseclasses.Results;
+import models.RequestData;
+import models.Results;
 
 /**
  * Created by clairescout on 1/13/18.

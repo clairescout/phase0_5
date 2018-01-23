@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import theseclasses.Results;
+import models.Results;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -76,6 +76,24 @@ public class StringProcessorProxy_NoCommandsTest {
     public void testTrim(){
         Results r = new Results(true, "hello", null);
         Results r2 = spp.trim("     hello    ");
+        assertEquals(r.getMessage(), r2.getMessage());
+        assertEquals(r.isSuccess(), r2.isSuccess());
+        assertEquals(r.getData(), r2.getData());
+    }
+
+    @Test
+    public void testTrimNull(){
+        Results r = new Results(false, null, "String is Null");
+        Results r2 = spp.toLowerCase(null);
+        assertEquals(r.getMessage(), r2.getMessage());
+        assertEquals(r.isSuccess(), r2.isSuccess());
+        assertEquals(r.getData(), r2.getData());
+    }
+
+    @Test
+    public void testTrimSpaceInMiddleOfString(){
+        Results r = new Results(true, "i love everything about cs340", null);
+        Results r2 = spp.trim("    i love everything about cs340    ");
         assertEquals(r.getMessage(), r2.getMessage());
         assertEquals(r.isSuccess(), r2.isSuccess());
         assertEquals(r.getData(), r2.getData());

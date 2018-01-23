@@ -2,9 +2,8 @@ package otherServerThings;
 
 import java.lang.reflect.Method;
 
-import theseclasses.ICommand;
-import theseclasses.Results;
-import otherServerThings.StringProcessor;
+import models.ICommand;
+import models.Results;
 
 /**
  * Created by clairescout on 1/13/18.
@@ -31,7 +30,7 @@ public class Command  implements ICommand {
         try {
             Class<?> receiver = Class.forName(_className);
             Method method = receiver.getMethod(_methodName, _paramTypes);
-            r = (Results)method.invoke(null, _paramValues);
+            r = (Results)method.invoke(StringProcessor.getInstance() , _paramValues);
         }
         catch (Exception e) {
             e.printStackTrace();

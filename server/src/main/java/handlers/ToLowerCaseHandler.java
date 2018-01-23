@@ -1,15 +1,13 @@
 package handlers;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 
 import otherServerThings.ServerSerializer;
 import otherServerThings.StringProcessor;
-import sun.misc.Request;
-import theseclasses.RequestData;
-import theseclasses.Results;
+import models.RequestData;
+import models.Results;
 
 /**
  * Created by clairescout on 1/13/18.
@@ -24,7 +22,6 @@ public class ToLowerCaseHandler extends  HandlerBase {
         boolean success = false;
         try{
             if(exchange.getRequestMethod().toLowerCase().equals("post")){
-                //String s = getStringFromUrl(exchange);
                 RequestData requestData = getRequestData(exchange);
                 Results r = StringProcessor.getInstance().toLowerCase(requestData.getData());
                 String respData = serverSerializer.encodeResults(r);

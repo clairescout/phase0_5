@@ -1,4 +1,4 @@
-package theseclasses;
+package models;
 
 /**
  * Created by clairescout on 1/19/18.
